@@ -68,3 +68,11 @@ header h2 {
     width: clamp(100px, 30vw, 300px);
     height: auto; /* Maintain aspect ratio */
 }
+#home-page-nav-bar img:hover {
+    /* Slightly enlarge the card */
+    transform: scale(1.09); 
+}
+
+
+
+
