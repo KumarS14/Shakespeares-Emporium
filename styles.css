@@ -59,3 +59,12 @@ header h2 {
     
     
 }
+#home-page-nav-bar img {
+    /* Ensure the card images always stay within a comfortable range:
+       - Minimum width: 100px (prevents getting too small on tiny screens)
+       - Ideal: 30vw (30% of the viewport width, scales as screen grows/shrinks)
+       - Maximum width: 300px (prevents getting too large on very large screens)
+    */
+    width: clamp(100px, 30vw, 300px);
+    height: auto; /* Maintain aspect ratio */
+}
