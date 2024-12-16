@@ -1,22 +1,23 @@
-html{
-    background-image: url('../media/background-image.jpg') ;
+html {
+    background-image: url('../media/background-image.jpg');
     background-size: cover;
     background-position: center;
-    
-    
-    
 }
+
 header {
     display: flex;
-    justify-content: center; /* Centers image */
-    
-
+    flex-direction: column;
+    justify-content: center;  /* Centers contents vertically */
+    align-items: center;      /* Centers contents horizontally */
 }
+
 header .header-image {
-    height: clamp(20vh, 23vh, 40vh); /* Ensures center image can never be smaller then 
-    20vh its ideal sizes is 23vh and max height is 40vh and this is done to ensure proper responsive design 
-    as the image heigh will scale in accordance to the view height */
+    height: clamp(20vh, 23vh, 40vh); 
+    /* The image will never be smaller than 20vh,
+       will ideally be 23vh (when screen size allows),
+       and will not exceed 40vh. This ensures proper
+       responsive design as the image height scales
+       with the viewport height. */
     width: auto;
 }
-
 
