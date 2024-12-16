@@ -51,6 +51,11 @@ header h2 {
     /* Apply an italic style for emphasis or a stylistic touch. */
     font-style: italic; /* Optional styling */
 }
-
-
-
+#home-page-nav-bar{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    
+    
+}
