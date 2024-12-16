@@ -2,6 +2,7 @@ html {
     background-image: url('../media/background-image.jpg');
     background-size: cover;
     background-position: center;
+    font-family: adobe-caslon-pro, serif;
 }
 
 header {
@@ -20,4 +21,36 @@ header .header-image {
        with the viewport height. */
     width: auto;
 }
+header h1 {
+    /* 
+       font size dynamically adjusts to the minimum size of 1.5rem,
+       the ideal size is set at 4% of the viewport width (4vw), 
+       and a maximum of 3rem so the text never gets too big.
+    */
+    font-size: clamp(1.5rem, 4vw, 3rem);
+
+    /* Add spacing above and below the heading. 
+       Top: 1rem, bottom: 0.5rem, no left/right margin. */
+    margin: 1rem 0 0.5rem;
+
+    /* Center the heading text within its parent container. */
+    text-align: center;
+}
+
+header h2 {
+    /* 
+       Dynamically scales the font size
+    */
+    font-size: clamp(1rem, 2.5vw, 2rem);
+
+    /* Remove all default margins so its layed out properly */
+    margin: 0;
+
+    text-align: center;
+    
+    /* Apply an italic style for emphasis or a stylistic touch. */
+    font-style: italic; /* Optional styling */
+}
+
+
 
