@@ -72,6 +72,18 @@ header h2 {
     /* Slightly enlarge the card */
     transform: scale(1.09); 
 }
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 3vh;
+    width: 100%;
+    background-color: #2C3E50;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 
 
 
