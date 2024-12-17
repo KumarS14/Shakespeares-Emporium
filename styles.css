@@ -144,3 +144,19 @@ html, body {
         height: 200px;
     }
 }
+.shakespeare-content {
+    max-width: 800px;          /* Sets a maximum width for the container */
+    margin: 0 auto;            /* Centers the container horizontally */
+    text-align: center;        /* Centers the text within the container */
+    padding: 20px;             /* Optional: Adds padding for better spacing */
+    box-sizing: border-box;    /* Ensures padding doesn't exceed max-width */
+    font-size: clamp(1.2rem, 1.7vw, 1.7rem);
+    
+    
+}
+h1 , h2, h3, h4, h5, h6 , p {
+    font-family: adobe-caslon-pro, serif;
+}
+h1 , h2, h3, h4, h5, h6 {
+    font-style: italic;
+}
