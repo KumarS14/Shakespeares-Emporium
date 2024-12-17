@@ -168,4 +168,14 @@ h1 , h2, h3, h4, h5, h6 {
     justify-content: center;
     margin-top: 20px; /* Optional: Adds space above the search bar */
 }
+#search-bar {
+    width: clamp(250px, 50vw, 500px); /* used clamp to make width responsive in accordance to screen size */
+    height: 6vh;         
+    font-size: 2.5vh;              
+    border-radius: 100000px; /* border radius for making the search bar rounded */           
+    box-sizing: border-box;        
+    background-color: #2C3E50;
+    color: #E1CDA5;
+    border-color: #2C3E50;
+}
 
