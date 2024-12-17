@@ -21,7 +21,7 @@ header .header-image {
        with the viewport height. */
     width: auto;
 }
-header h1 {
+h1 {
     /* 
        font size dynamically adjusts to the minimum size of 1.5rem,
        the ideal size is set at 4% of the viewport width (4vw), 
