@@ -154,9 +154,18 @@ html, body {
     
     
 }
+h2 {
+    font-size: clamp(1rem, 3vw, 2rem);
+}
 h1 , h2, h3, h4, h5, h6 , p {
     font-family: adobe-caslon-pro, serif;
 }
 h1 , h2, h3, h4, h5, h6 {
     font-style: italic;
 }
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Optional: Adds space above the search bar */
+}
+
