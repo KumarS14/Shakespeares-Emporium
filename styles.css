@@ -72,16 +72,26 @@ header h2 {
     /* Slightly enlarge the card */
     transform: scale(1.09); 
 }
-#navbar{
-    display: flex;
-    justify-content: space-between;
-    padding: 3vh;
-    width: 100%;
-    background-color: #2C3E50;
-}
 html, body {
     margin: 0;
     padding: 0;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  /* Vertically center the buttons within the fixed height */
+    height: 10vh;         /* Set a fixed height so the navbar doesn’t change size */
+    width: 100%;
+    background-color: #2C3E50;
+}
+
+#navbar button {
+    background-color: #2C3E50;
+    border-color: #E1CDA5;
+    padding: 1vh 2vh;     /* Adjust padding as desired without affecting navbar height */
+    color: white;         /* Just an example for better contrast */
+    font-size: 1rem;      /* Adjust this without changing navbar height */
 }
 
 
