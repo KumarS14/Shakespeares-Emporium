@@ -19,4 +19,13 @@ $(document).ready(function() {
     $('#View-All-Button').on('click', function() {
         window.location.href = 'view-all-page.html';
     });
+    $('#video-container').on('click', function(){
+        var iframe = $('<iframe>', {
+            src: 'https://www.youtube.com/embed/geev441vbMI?autoplay=1',
+            class: 'video-iframe',
+            allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+            allowfullscreen: true
+        });
+        $(this).replaceWith(iframe);
+    });
 });
