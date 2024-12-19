@@ -178,4 +178,16 @@ h1 , h2, h3, h4, h5, h6 {
     color: #E1CDA5;
     border-color: #2C3E50;
 }
-
+#query-submit{
+    width: clamp(120px, 20vw, 245px); /* used clamp to make width responsive in accordance to screen size */
+    height: 5vh;
+    border-radius: 20px;
+    background-color: #2C3E50;
+    color: #E1CDA5;
+    border-color: #2C3E50;
+    font-size: 2.5vh;    
+    font-family: adobe-caslon-pro, serif; ;
+    font-style: italic;
+    line-height: 5vh;    /* Centers text vertically */
+    cursor: pointer;     /* Changes cursor on hover */
+}
