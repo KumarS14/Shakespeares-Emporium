@@ -190,7 +190,17 @@ h1 , h2, h3, h4, h5, h6 {
     font-style: italic;
     line-height: 5vh;    /* Centers text vertically */
     cursor: pointer;     /* Changes cursor on hover */
-}
+} .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 .modal-content {
     margin: 10% auto;
     padding: 20px;
@@ -202,10 +212,7 @@ h1 , h2, h3, h4, h5, h6 {
     float: right;
     font-size: 28px;
     cursor: pointer;
-  }
-  #modal {
-    display: none; /* display is set to none so the modal is hidden until a query is entered */
-  }
+}
 
   #chart-container {
     max-width: 95%; /* Prevents the chart from exceeding 90% of the screen width */
