@@ -226,3 +226,29 @@ h1 , h2, h3, h4, h5, h6 {
     width: 100%; /* Canvas takes full width of the container */
     height: auto; /* Adjusts height automatically to maintain aspect ratio */
 }
+.table-container {
+    background-color: white;
+    max-width: clamp(300px, 80vw, 1200px);
+
+  /* Centers the container horizontally */
+  margin: 0 auto;
+
+  /* Ensure any internal padding doesn't overflow the max width */
+  box-sizing: border-box;
+
+  /* Background color to make table area stand out */
+  background-color: white;
+  overflow-x: auto;
+}
+#booksTable {
+    /* lets the table fill the container's width */
+    width: 100%;
+  
+    /*clamped the font size within a comfortable range
+       so text scales nicely on different screen sizes */
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  
+    /* Collapses border spacing so the lines appear as a single border */
+    border-collapse: collapse;
+  }
+  
