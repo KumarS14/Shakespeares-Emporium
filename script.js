@@ -122,31 +122,44 @@ $('#closeModal').on('click', () => $('#modal').hide()); // Listens for the close
 
 
 const generateChart = (works) => {
-    const ctx = document.getElementById('downloads-chart').getContext('2d');
-    /* selects the element from the html document get its 2D  context to allow rendering graphics on it
-    which in this case is the chart bars */
+    // Attempt to locate the canvas element by its ID
+    const chartEl = document.getElementById('downloads-chart');
+  
+    // If the canvas is not found, skip rendering to avoid errors
+    if (!chartEl) {
+      return;
+    }
+  
+    // Acquire the 2D drawing context from the canvas
+    const ctx = chartEl.getContext('2d');
+  
+    // Prepare data for the chart, using titles as labels and download counts as dataset values
     const chartData = {
-        labels: works.map(work => work.title), // Extracts titles of works for labeling the x-axis
-        datasets: [{
-            label: 'Downloads', //  label for data
-            data: works.map(work => work.download_count), // Extracts download counts for the y-axis data
-        }]
+      labels: works.map(work => work.title),
+      datasets: [
+        {
+          label: 'Downloads',
+          data: works.map(work => work.download_count),
+        },
+      ],
     };
+  
+    // Instantiate a new bar chart with the data and configurations
     new Chart(ctx, {
-        type: 'bar', // Defines the chart type as a bar chart
-        data: chartData, // Supplies the data object for the chart
-        options: {
-            responsive: true, // Ensures the chart adjusts to screen size
-            maintainAspectRatio: false, // Allows better control over the aspect ratio
-            plugins: {
-                legend: { display: true } // Displays the legend
-                
-            },
-            
-
-        }
+      type: 'bar',
+      data: chartData,
+      options: {
+        // Make the chart responsive to various screen sizes
+        responsive: true,
+        // Allow the chart to expand without retaining a strict aspect ratio
+        maintainAspectRatio: false,
+        // Set plugin-specific configurations, in this case controlling the legend display
+        plugins: {
+          legend: { display: true },
+        },
+      },
     });
-}
+  };
 
 
   
