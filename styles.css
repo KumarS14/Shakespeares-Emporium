@@ -194,11 +194,9 @@ h1 , h2, h3, h4, h5, h6 {
 .modal-content {
     margin: 10% auto;
     padding: 20px;
-    background-color: #F5F5F5; /* Updated color */
+    background-color: #F5F5F5; 
     width: 80%;
     text-align: center;
-    border-radius: 8px; /* Optional: Rounded corners for a modern look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for a subtle elevation effect */
  }
  .close {
     float: right;
@@ -208,3 +206,16 @@ h1 , h2, h3, h4, h5, h6 {
   #modal {
     display: none; /* display is set to none so the modal is hidden until a query is entered */
   }
+
+  #chart-container {
+    max-width: 95%; /* Prevents the chart from exceeding 90% of the screen width */
+    margin: 0 auto; /* Centers the chart horizontally */
+    padding: 20px; /* Adds padding around the chart for better spacing */
+    box-sizing: border-box; /* Ensures padding doesn't exceed max-width */
+    background-color: white;
+}
+
+#downloads-chart {
+    width: 100%; /* Canvas takes full width of the container */
+    height: auto; /* Adjusts height automatically to maintain aspect ratio */
+}

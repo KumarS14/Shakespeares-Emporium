@@ -94,7 +94,7 @@ $('#closeModal').on('click', () => $('#modal').hide()); // Listens for the close
 fetchShakespeareWorks(); // Initializes the fetching of data from the API on page load
 
 const generateChart = (works) => {
-    const ctx = document.getElementById('downloadsChart').getContext('2d');
+    const ctx = document.getElementById('downloads-chart').getContext('2d');
     /* selects the element from the html document get its 2D  context to allow rendering graphics on it
     which in this case is the chart bars */
     const chartData = {
@@ -108,10 +108,14 @@ const generateChart = (works) => {
         type: 'bar', // Defines the chart type as a bar chart
         data: chartData, // Supplies the data object for the chart
         options: {
-            responsive: true, // Ensures the chart adjusts to the screen size dynamically
+            responsive: true, // Ensures the chart adjusts to screen size
+            maintainAspectRatio: false, // Allows better control over the aspect ratio
             plugins: {
-                legend: { display: true } // Displays the legend to indicate what the chart represents
-            }
+                legend: { display: true } // Displays the legend
+                
+            },
+            
+
         }
     });
 }
