@@ -81,10 +81,22 @@ const populateTable = (works) => {
 
 // Function to search for a work based on user input
 const searchWork = () => {
-    const searchValue = $('#search-bar').val().toLowerCase(); // Retrieves the user's input from the search bar and converts it to lowercase for case-insensitive matching
-    const result = filteredWorks.find(work => work.title.toLowerCase().includes(searchValue)); // Searches through the list of works to find a title that includes the user's input
-    result ? openModal(result) : alert('No results found for your search.'); // If a match is found it opens the modal with details  otherwise it shows an alert to the user
-};
+    // Captures the user’s query and converts it to lowercase for case-insensitive matching
+    const searchValue = $('#search-bar').val().toLowerCase();
+    
+    // Locates the index of a work whose title contains the user’s query
+    const index = filteredWorks.findIndex(work =>
+      work.title.toLowerCase().includes(searchValue)
+    );
+  
+    // If no match is found it alerts the user  otherwise it opens the modal at the matching index
+    if (index === -1) {
+      alert('No results found');
+    } else {
+      openModal(index);
+    }
+  };
+  
 
 // Function to display details of a selected work in a modal
 const openModal = (index) => {
