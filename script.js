@@ -87,7 +87,8 @@ const searchWork = () => {
 };
 
 // Function to display details of a selected work in a modal
-const openModal = (work) => {
+const openModal = (index) => {
+    const work = filteredWorks[index];
     const modalDetails = $('#modalDetails'); // Selects the modal's content container to dynamically populate it with details
     const image = work.formats['image/jpeg'] // Checks if a JPEG image format is available
         ? `<img src="${work.formats['image/jpeg']}" alt="Cover Image" style="width:300px; height:auto; margin-bottom:20px;">` // If available, creates an image element with styling
