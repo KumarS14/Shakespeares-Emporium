@@ -45,9 +45,38 @@ const fetchShakespeareWorks = () => {
         .done(data => {
             filteredWorks = data.results; // Store the fetched works in the global array
             generateChart(filteredWorks); // Generate the chart after fetching the data
+            populateTable(filteredWorks); // Populate the table
         })
         .fail(error => console.error('Error fetching data:', error)); // Log an error if the API call fails
 };
+const populateTable = (works) => {
+    const tableBody = $('#booksTable tbody');
+    tableBody.empty();
+  
+    works.forEach((work, index) => {
+      const image = work.formats['image/jpeg'] 
+        ? `<img src="${work.formats['image/jpeg']}" alt="Cover Image" style="width:100px; height:auto;">` 
+        : 'No Image';
+  
+      const row = `
+        <tr>
+          <td>${image} ${work.title}</td>
+          <td>${work.authors.map(author => author.name).join(', ')}</td>
+          <td>${work.subjects.join(', ')}</td>
+          <td>${work.download_count}</td>
+          <td>
+            <button onclick="openModal(${index})">View</button>
+          </td>
+        </tr>
+      `;
+      tableBody.append(row);
+    });
+  
+    // Initialize DataTable with Search Feature
+    $('#booksTable').DataTable({
+      destroy: true // Allow reinitialization
+    });
+  };
 
 
 // Function to search for a work based on user input
@@ -90,8 +119,7 @@ const formats = Object.entries(work.formats) // Converts the formats object into
 $('#query-submit').on('click', searchWork); // Listens for the search button click and triggers the search function
 $('#closeModal').on('click', () => $('#modal').hide()); // Listens for the close button click and hides the modal
 
-// Fetch the Shakespeare works when the page loads
-fetchShakespeareWorks(); // Initializes the fetching of data from the API on page load
+
 
 const generateChart = (works) => {
     const ctx = document.getElementById('downloads-chart').getContext('2d');
@@ -120,6 +148,10 @@ const generateChart = (works) => {
     });
 }
 
+
+  
+  //  Fetch the Shakespeare works when the page loads
+  fetchShakespeareWorks(); // Initializes the fetching of data from the API on page load
 
 
 
