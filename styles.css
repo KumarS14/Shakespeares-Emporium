@@ -191,3 +191,18 @@ h1 , h2, h3, h4, h5, h6 {
     line-height: 5vh;    /* Centers text vertically */
     cursor: pointer;     /* Changes cursor on hover */
 }
+.modal-content {
+    margin: 10% auto;
+    padding: 20px;
+    background-color: #F5F5F5; /* Updated color */
+    width: 80%;
+    text-align: center;
+    border-radius: 8px; /* Optional: Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for a subtle elevation effect */
+ }
+ .close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+  }
+ 
