@@ -39,11 +39,16 @@ let filteredWorks = [];
 
 // fetches Shakespeare's works from the Gutendex API using ajax request as its alot easier and simpler to do opposed to using
 //normal JS
+// Fetches Shakespeare's works from the Gutendex API using an AJAX request
 const fetchShakespeareWorks = () => {
-    $.get('https://gutendex.com/books?search=shakespeare') //Sends get request to api
-        .done(data => filteredWorks = data.results)
-        .fail(error => console.error('Error fetching data:', error));
+    $.get('https://gutendex.com/books?search=shakespeare') // Sends GET request to API
+        .done(data => {
+            filteredWorks = data.results; // Store the fetched works in the global array
+            generateChart(filteredWorks); // Generate the chart after fetching the data
+        })
+        .fail(error => console.error('Error fetching data:', error)); // Log an error if the API call fails
 };
+
 
 // Function to search for a work based on user input
 const searchWork = () => {
