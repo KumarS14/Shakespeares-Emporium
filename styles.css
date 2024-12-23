@@ -205,4 +205,6 @@ h1 , h2, h3, h4, h5, h6 {
     font-size: 28px;
     cursor: pointer;
   }
- 
+  #modal {
+    display: none; /* display is set to none so the modal is hidden until a query is entered */
+  }
