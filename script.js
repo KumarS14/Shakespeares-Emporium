@@ -88,6 +88,28 @@ $('#closeModal').on('click', () => $('#modal').hide()); // Listens for the close
 // Fetch the Shakespeare works when the page loads
 fetchShakespeareWorks(); // Initializes the fetching of data from the API on page load
 
+const generateChart = (works) => {
+    const ctx = document.getElementById('downloadsChart').getContext('2d');
+    /* selects the element from the html document get its 2D  context to allow rendering graphics on it
+    which in this case is the chart bars */
+    const chartData = {
+        labels: works.map(work => work.title), // Extracts titles of works for labeling the x-axis
+        datasets: [{
+            label: 'Downloads', //  label for data
+            data: works.map(work => work.download_count), // Extracts download counts for the y-axis data
+        }]
+    };
+    new Chart(ctx, {
+        type: 'bar', // Defines the chart type as a bar chart
+        data: chartData, // Supplies the data object for the chart
+        options: {
+            responsive: true, // Ensures the chart adjusts to the screen size dynamically
+            plugins: {
+                legend: { display: true } // Displays the legend to indicate what the chart represents
+            }
+        }
+    });
+}
 
 
 
