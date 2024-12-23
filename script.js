@@ -11,7 +11,7 @@ $(document).ready(function() { // Functionality for the homepage where depending
         window.location.href = 'view-all-page.html';
     });
     $('#Home-Button').on('click', function() {
-        window.location.href = 'home-page.html';
+        window.location.href = 'index.html';
     });
     $('#Search-Button').on('click', function() {
         window.location.href = 'search-page.html';
