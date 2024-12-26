@@ -1,5 +1,5 @@
 html {
-    background-image: url('../media/background-image.jpg');
+    background-image: url('./media/background-image.jpg');
     background-size: cover;
     background-position: center;
     font-family: adobe-caslon-pro, serif;
