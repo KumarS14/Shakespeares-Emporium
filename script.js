@@ -22,12 +22,12 @@ $(document).ready(function() { // Functionality for the homepage where depending
 });
     // When the video container is clicked the video container is replaced with an embedded YouTube iframe to watch the video
 $('#video-container').on('click', function() {
-    // Create an iframe element with the necessary attributes for YouTube playback
+    // creates an iframe element for youtube playback
     var iframe = $('<iframe>', {
         src: 'https://www.youtube.com/embed/geev441vbMI?autoplay=1', // URL for the video, autoplay starts playback immediately
-        class: 'video-iframe', // Apply a class for styling purposes
+        class: 'video-iframe', 
         allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', // Permissions for video playback
-        allowfullscreen: true // Allow full-screen mode
+        allowfullscreen: true // allows for full screen mode
     });
 
     // video container is replaced with the newly created iframe
@@ -39,49 +39,54 @@ let filteredWorks = [];
 
 // fetches Shakespeare's works from the Gutendex API using ajax request as its alot easier and simpler to do opposed to using
 //normal JS
-// Fetches Shakespeare's works from the Gutendex API using an AJAX request
 const fetchShakespeareWorks = () => {
     $.get('https://gutendex.com/books?search=shakespeare') // Sends GET request to API
         .done(data => {
-            filteredWorks = data.results; // Store the fetched works in the global array
-            generateChart(filteredWorks); // Generate the chart after fetching the data
-            populateTable(filteredWorks); // Populate the table
+            filteredWorks = data.results; // Stores the fetched works in the global array
+            generateChart(filteredWorks); // Generates the chart after fetching the data
+            populateTable(filteredWorks); // Populates the table
         })
         .fail(error => console.error('Error fetching data:', error)); // Log an error if the API call fails
 };
+// Function to populate the table with a list of Shakespeare's works
 const populateTable = (works) => {
-    const tableBody = $('#booksTable tbody');
-    tableBody.empty();
-  
-    works.forEach((work, index) => {
+  // selects body element and clears any existing rows
+  const tableBody = $('#booksTable tbody');
+  tableBody.empty();
+
+  // Iterates over the list of works and create a table row for each work
+  works.forEach((work, index) => {
+      // Checks if an image is available; if not it displays No Image
       const image = work.formats['image/jpeg'] 
-        ? `<img src="${work.formats['image/jpeg']}" alt="Cover Image" style="width:100px; height:auto;">` 
-        : 'No Image';
-  
+          ? `<img src="${work.formats['image/jpeg']}" alt="Cover Image" style="width:100px; height:auto;">` 
+          : 'No Image';
+
+      // Construct a table row with work details
       const row = `
-        <tr>
-          <td>${image} ${work.title}</td>
-          <td>${work.authors.map(author => author.name).join(', ')}</td>
-          <td>${work.subjects.join(', ')}</td>
-          <td>${work.download_count}</td>
-          <td>
-            <button onclick="openModal(${index})">View</button>
-          </td>
-        </tr>
+          <tr>
+              <td>${image} ${work.title}</td> <!-- Display image and title in the first column -->
+              <td>${work.authors.map(author => author.name).join(', ')}</td> <!-- Authors listed in the second column -->
+              <td>${work.subjects.join(', ')}</td> <!-- Subjects listed in the third column -->
+              <td>${work.download_count}</td> <!-- Download count in the fourth column -->
+              <td>
+                  <button onclick="openModal(${index})">View</button> <!-- Button to open modal with work details -->
+              </td>
+          </tr>
       `;
-      tableBody.append(row);
-    });
-  
-    // Initialize DataTable with Search Feature
-    $('#booksTable').DataTable({
-      destroy: true // Allow reinitialization
-    });
-  };
+      tableBody.append(row); // Appends row to the table body
+  });
+
+  // Initializes the DataTable plugin with search functionality
+  $('#booksTable').DataTable({
+      destroy: true // Allows for reinitialization of data table
+  });
+};
+
 
 
 // Function to search for a work based on user input
 const searchWork = () => {
-    // Captures the user’s query and converts it to lowercase for case-insensitive matching
+    // Captures the user’s query and converts it to lowercase for case matching
     const searchValue = $('#search-bar').val().toLowerCase();
     
     // Locates the index of a work whose title contains the user’s query
@@ -135,7 +140,7 @@ $('#closeModal').on('click', () => $('#modal').hide()); // Listens for the close
 
 
 const generateChart = (works) => {
-    // Attempt to locate the canvas element by its ID
+    // locates the canvas element by its ID
     const chartEl = document.getElementById('downloads-chart');
   
     // If the canvas is not found, skip rendering to avoid errors
@@ -143,7 +148,7 @@ const generateChart = (works) => {
       return;
     }
   
-    // Acquire the 2D drawing context from the canvas
+    // 2D drawing context from the canvas
     const ctx = chartEl.getContext('2d');
   
     // Prepare data for the chart, using titles as labels and download counts as dataset values
@@ -162,11 +167,11 @@ const generateChart = (works) => {
       type: 'bar',
       data: chartData,
       options: {
-        // Make the chart responsive to various screen sizes
+        // Makes the chart responsive to various screen sizes
         responsive: true,
-        // Allow the chart to expand without retaining a strict aspect ratio
+        // Allows the chart to expand without retaining a strict aspect ratio
         maintainAspectRatio: false,
-        // Set plugin-specific configurations, in this case controlling the legend display
+        // Sets plugin specific configurations  in this case controlling the legend display
         plugins: {
           legend: { display: true },
         },
