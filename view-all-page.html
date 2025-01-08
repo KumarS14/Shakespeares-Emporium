@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>View All</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://use.typekit.net/ilr8nkk.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ilr8nkk.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"/>
 </head>
 <body>
     <header>
@@ -19,12 +19,29 @@
     </header>
     <h1>View all of his works</h1>
     <main>
-        <div id="modal" class="modal">
-            <div class="modal-content">
-              <span id="close-modal" class="close">&times;</span>
-              <div id="modalDetails"></div>
-            </div>
+        <div
+          id="modal"
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="dialogTitle"
+          aria-describedby="dialogDesc"
+          hidden
+        >
+          <div class="modal-content">
+            <button type="button" id="close-modal" class="close" aria-label="Close Dialog">
+              &times;
+            </button>
+            
+            <h2 id="dialogTitle">Selected Work Details</h2>
+            <p id="dialogDesc">
+              Here you can see more information about the selected Shakespeare work.
+            </p>
+
+            <div id="modalDetails"></div>
+          </div>
         </div>
+
         <div class="table-container">
             <table id="booksTable" class="display">
                 <thead>
@@ -37,14 +54,11 @@
                   </tr>
                 </thead>
                 <tbody></tbody>
-              </table>
+            </table>
         </div>
-       
-          
-        </main>
+    </main>
+
     <script src="./script.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-
-
 </body>
 </html>
